@@ -1,5 +1,12 @@
 #!/bin/bash
 
+ENV_PATH=`dirname $0`/env.sh
+
+if [ -f $ENV_PATH ]; then
+  source $ENV_PATH
+else
+  KAFKA_HOME=/opt/kafka
+fi
 # create myid file. see http://zookeeper.apache.org/doc/r3.1.1/zookeeperAdmin.html#sc_zkMulitServerSetup
 if [ ! -d /tmp/zookeeper ]; then
     echo creating zookeeper data dir...
@@ -7,4 +14,4 @@ if [ ! -d /tmp/zookeeper ]; then
     echo $1 > /tmp/zookeeper/myid
 fi
 # echo starting zookeeper 
-/usr/local/kafka-0.8.0/bin/zookeeper-server-start.sh /vagrant/config/zookeeper.properties > /tmp/zookeeper.log &
+$KAFKA_HOME/bin/zookeeper-server-start.sh /vagrant/config/zookeeper.properties > /tmp/zookeeper.log &

@@ -7,7 +7,7 @@ This configuration will start and provision 6 CentOS6 VMs:
 * Three Apache Zookeeper hosts configured on cluster
 * Three Apache Kafka hosts with one broker each
 
-Each host is provisioned with JDK 7 and Kafka 0.8.0
+Each host is provisioned with JDK 7 and Kafka 0.8.1
 
 Prerrequisites
 -------------------------
@@ -19,7 +19,7 @@ Setup
 
 To start it up, just git clone this repo and execute ```vagrant up```. Takes a while the first time as it will download all required dependencies for you.
 
-Kafka is installed on ```/usr/local/kafka```
+Kafka is installed on ```/opt/kafka```
 
 Let's test it!
 -------------------------
