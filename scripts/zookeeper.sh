@@ -11,7 +11,8 @@ fi
 if [ ! -d /tmp/zookeeper ]; then
     echo creating zookeeper data dir...
     mkdir /tmp/zookeeper
-    echo $1 > /tmp/zookeeper/myid
 fi
+
+echo $1 > /tmp/zookeeper/myid
 # echo starting zookeeper 
 $KAFKA_HOME/bin/zookeeper-server-start.sh /vagrant/config/zookeeper.properties > /tmp/zookeeper.log &
